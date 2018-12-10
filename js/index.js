@@ -63,7 +63,7 @@ function gameHandle(e) {
     console.log('yeah');
     guessed++;
     console.log('guessed:'+guessed);
-    if ( guessed == 2 ) return stopHandle();
+    if ( guessed == goal ) return stopHandle();
     i++;
     input.value = null;
     yearSpan.textContent = years[i];
