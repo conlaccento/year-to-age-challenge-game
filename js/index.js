@@ -75,7 +75,7 @@ function timerFunction() {
     stopwatchSec = Math.floor( (now - start) / 1000 );
     stopWatchMillisec = (now - start) % 1000;
     timer.textContent = stopwatchSec + '.' + stopWatchMillisec;
-  }, 100);
+  }, 50);
 }
 
 // get the reply and check it
