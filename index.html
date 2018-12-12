@@ -8,13 +8,16 @@
 
   <body>
 
+    <h1>Year to age challenge</h1>
+
     <button class="start-btn">Start</button>
-    <p class="timer">00.00.00</p>
+    <p class="timer">0.000</p>
     <form class="age-form">
-      <label for="age-input">How many years have passe since <span class="year"></span></label>
-      <input name="age-input" type="number">
+      <label for="age-input">How many years have passed since <span class="year">...</span></label>
+      <input name="age-input" type="number" value="">
       <input type="submit" value="Submit">
     </form>
+    <p class="guessed">Guessed <strong class="guessedNum">0</strong> on <span class="guessedGoal"></span></p>
 
     <script  src="js/index.js"></script>
 

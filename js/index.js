@@ -2,21 +2,29 @@ const startBtn = document.querySelector('.start-btn');
 const yearSpan = document.querySelector('.year');
 const ageInput = document.querySelector('[name="age-input"]');
 const input = document.querySelector('input[name="age-input"]');
+const timer = document.querySelector('.timer');
 const form = document.querySelector('.age-form');
+const guessedNum = document.querySelector('.guessedNum');
+const guessedGoal = document.querySelector('.guessedGoal');
+
 const currentYear = (new Date()).getFullYear();
 const goal = 6;
 
 let guessed = 0;
 let years = [];
 let i = 0;
+let stopwatch;
 
 input.disabled = true;
+input.value = null;
+
+guessedGoal.textContent = goal;
 
 function startHandle() {
   // create years array
   createYrsArray();
   // start
-
+  timerFunction();
   // start the game
   input.disabled = false;
   input.focus();
@@ -55,6 +63,21 @@ function shuffle(array) {
   return array;
 }
 
+function timerFunction() {
+  // clear any existing timers?
+  clearInterval(stopwatch);
+
+  const start = Date.now();
+
+  stopwatch = setInterval(() => {
+    const now = Date.now();
+
+    stopwatchSec = Math.floor( (now - start) / 1000 );
+    stopWatchMillisec = (now - start) % 1000;
+    timer.textContent = stopwatchSec + '.' + stopWatchMillisec;
+  }, 100);
+}
+
 // get the reply and check it
 function gameHandle(e) {
   e.preventDefault();
@@ -62,19 +85,23 @@ function gameHandle(e) {
   if ( reply == currentYear - years[i] ) {
     console.log('yeah');
     guessed++;
-    console.log('guessed:'+guessed);
+    guessedNum.textContent = guessed;
     if ( guessed == goal ) return stopHandle();
     i++;
     input.value = null;
     yearSpan.textContent = years[i];
   } else {
     console.log('nope');
+    input.value = null;
   }
 }
 
 function stopHandle() {
   console.log('stop');
   // stop timer
+  clearInterval(stopwatch);
+  input.disabled = true;
+  input.value = null;
 }
 
 startBtn.addEventListener( 'click', startHandle );
