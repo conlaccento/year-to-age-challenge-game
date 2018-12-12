@@ -90,6 +90,7 @@ function gameHandle(e) {
     i++;
     input.value = null;
     yearSpan.textContent = years[i];
+    input.focus();
   } else {
     console.log('nope');
     input.value = null;
