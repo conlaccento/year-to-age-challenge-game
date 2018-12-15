@@ -4,20 +4,26 @@
   <head>
     <meta charset="UTF-8">
     <title>Year to age challenge game - wip</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
+    <link href="css/style.css"  rel="stylesheet">
   </head>
 
   <body>
 
-    <h1>Year to age challenge</h1>
+    <div class="card">
 
-    <button class="start-btn">Start</button>
-    <p class="timer">0.000</p>
-    <form class="age-form">
-      <label for="age-input">How many years have passed since <span class="year">...</span></label>
-      <input name="age-input" type="number" value="">
-      <input type="submit" value="Submit">
-    </form>
-    <p class="guessed">Guessed <strong class="guessedNum">0</strong> on <span class="guessedGoal"></span></p>
+      <h1>Year to age challenge</h1>
+
+      <button class="start-btn">Start</button>
+      <p class="timer">0.000</p>
+      <form class="age-form">
+        <label for="age-input">How many years have passed since <span class="year">...</span></label>
+        <input name="age-input" type="number" value=""><button class="submit"><span class="screen-reader-text">Submit</span></button>
+      </form>
+      <p class="guessed">Guessed <strong class="guessedNum">0</strong> on <span class="guessedGoal"></span></p>
+
+    </div>
 
     <script  src="js/index.js"></script>
 
